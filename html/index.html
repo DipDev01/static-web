@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmNiOn</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#"><img src="logo.png" alt="OmNiOn"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="user" id="user">
+                <button class="button_user" id="button_user">Sign In</button>
+            </div>
+            
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="left"></div>
+        <div class="container">
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="https://img.freepik.com/premium-photo/digital-art-tourist-backpackers-looking-beautiful-view-lake-mountains_800563-2323.jpg?size=626&ext=jpg" alt="Image 1">
+                    </div>
+                    <div class="slide">
+                        <img src="https://media.istockphoto.com/id/490374997/photo/library.jpg?s=612x612&w=0&k=20&c=8jcTCY_M0381obyA_jyY9dRLSQ8Qhxn9IvkZoJsiIFw=" alt="Image 2">
+                    </div>
+                    <div class="slide">
+                        <img src="https://media.istockphoto.com/id/1443628665/photo/adult-writing-in-the-classroom.webp?b=1&s=170667a&w=0&k=20&c=RAn7aclr4blb-ZdnU4-DsASgFSo4FVkrGqKTGI-aFBs=" alt="Image 3">
+                    </div>
+                </div>
+                <button class="toggle-btn prev">Prev</button>
+                <button class="toggle-btn next">Next</button>
+            </div>
+            <div class="title"><h1>Empower Your Mind: <br> Dive into the World of OmNiOn</h1></div>
+        </div>
+        <div class="right"></div>
+    </section>
+
+
+
+    <script>
+        const slides = document.querySelector('.slides');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        let index = 0;
+    
+        function showSlide(index) {
+            const slideWidth = document.querySelector('.slide').clientWidth;
+            slides.style.transform = `translateX(${-slideWidth * index}px)`;
+        }
+    
+        prevButton.addEventListener('click', () => {
+            index = (index > 0) ? index - 1 : slides.children.length - 1;
+            showSlide(index);
+        });
+    
+        nextButton.addEventListener('click', () => {
+            index = (index < slides.children.length - 1) ? index + 1 : 0;
+            showSlide(index);
+        });
+    
+        // Optional: Auto slide every 3 seconds
+        setInterval(() => {
+            nextButton.click();
+        }, 3000);
+    </script>
+</body>
+</html>
